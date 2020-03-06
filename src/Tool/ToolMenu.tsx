@@ -239,6 +239,19 @@ const ToolMenu = () => {
         }
     }
 
+    /**
+    * name Tiger
+    * desc 显示老虎的图层
+    */
+    const Tiger=()=>{
+        RemoveTool();
+        let tool:paper.Tool=new paper.Tool();
+        tool.onMouseDown=(event:paper.ToolEvent)=>{
+            let view:paper.View=paper.view;
+            view.scale(1.5,event.point);//1.5是放大比例系数，后面的event.point是放大的中心点    
+        }
+    }
+
     //清除所有工具的辅助函数，每一个工具函数使用前都要先执行
     const RemoveTool = () => {
         //先清除所有的工具
@@ -260,6 +273,7 @@ const ToolMenu = () => {
             case 'edit': return ToolEditPath;
             case 'enlarge': return ToolEnlarge;
             case 'rotate': return ToolRotate;
+            case 'tiger': return Tiger;
         }
     }
 
@@ -292,6 +306,9 @@ const ToolMenu = () => {
                 </Tooltip>
                 <Tooltip placement="right" title={"rotate"}>
                     <Button type="primary" shape="circle"  onClick={FunctionMap("rotate")}><IconFont type="icon-Link-Select" /></Button>
+                </Tooltip>
+                <Tooltip placement="right" title={"tiger"}>
+                    <Button type="primary" shape="circle"  onClick={FunctionMap("tiger")}><IconFont type="icon-hand" /></Button>
                 </Tooltip>
             </div>
         </Sider>
