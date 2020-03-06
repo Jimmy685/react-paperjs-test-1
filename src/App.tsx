@@ -5,6 +5,7 @@ import { Layout } from 'antd';
 import SplitPane from 'react-split-pane';
 import MyCanvas from "./MyCanvas/MyCanvas";
 import ToolMenu from "./Tool/ToolMenu"
+import Layer from "./Layers/Layer"
 import './App.css';
 
 const { Header, Content } = Layout;
@@ -19,6 +20,7 @@ const App=()=>{
       <Layout>
         <ToolMenu></ToolMenu>
         <MyCanvas></MyCanvas>
+        <Layer ></Layer>
         <Content className="me-right-bar">
             <SplitPane
               defaultSize="60%"
@@ -31,6 +33,7 @@ const App=()=>{
               <div />
               <div />
             </SplitPane>
+            
           </Content>
       </Layout>
     </Layout>
